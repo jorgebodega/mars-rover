@@ -21,6 +21,6 @@ class MarsRover:
 
             if action == "R":
                 direction = self.direction + 1
-                self.direction = Directions(direction)
+                self.direction = Directions(direction % 4)
 
         return f"0:{self.y_position}:{self.direction.name}"

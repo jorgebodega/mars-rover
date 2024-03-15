@@ -69,3 +69,11 @@ def test_should_rotate_right_four_times() -> None:
     result = mars_rover.execute("RRRR")
 
     assert result == "0:0:N"
+
+
+def test_should_rotate_left() -> None:
+    mars_rover = MarsRover()
+
+    result = mars_rover.execute("L")
+
+    assert result == "0:0:W"
