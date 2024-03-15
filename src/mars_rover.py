@@ -10,17 +10,42 @@ class Directions(IntEnum):
 
 class MarsRover:
     def __init__(self) -> None:
+        self.x_position = 0
         self.y_position = 0
         self.direction = Directions.N
 
+    def __rotate_left(self) -> None:
+        self.direction = Directions((self.direction - 1) % 4)
+
+    def __rotate_right(self) -> None:
+        self.direction = Directions((self.direction + 1) % 4)
+
+    def __move(self) -> None:
+        if self.direction == Directions.N:
+            self.y_position += 1
+            self.y_position %= 10
+
+        if self.direction == Directions.S:
+            self.y_position -= 1
+            self.y_position %= 10
+
+        if self.direction == Directions.E:
+            self.x_position += 1
+            self.x_position %= 10
+
+        if self.direction == Directions.W:
+            self.x_position -= 1
+            self.x_position %= 10
+
     def execute(self, command: str) -> str:
         for action in command:
-            if action == "M":
-                self.y_position += 1
-                self.y_position %= 10
-
             if action == "R":
-                direction = self.direction + 1
-                self.direction = Directions(direction % 4)
+                self.__rotate_right()
 
-        return f"0:{self.y_position}:{self.direction.name}"
+            if action == "L":
+                self.__rotate_left()
+
+            if action == "M":
+                self.__move()
+
+        return f"{self.x_position}:{self.y_position}:{self.direction.name}"
