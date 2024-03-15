@@ -2,7 +2,7 @@ from src.dependency import DependencyInterface
 
 
 class Kata:
-    dependency: DependencyInterface = None
+    dependency: DependencyInterface | None = None
 
     def __init__(self, dependency: DependencyInterface) -> None:
         self.dependency = dependency
