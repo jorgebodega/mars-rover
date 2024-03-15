@@ -1,6 +1,6 @@
 class MarsRover:
-    def __init__(self, grid: list[list]) -> None:
+    def __init__(self) -> None:
         pass
 
     def execute(self, command: str) -> str:
-        return ""
+        return "0:0:N"
