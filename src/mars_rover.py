@@ -1,6 +1,8 @@
 class MarsRover:
     def __init__(self) -> None:
-        pass
+        self.y_position = 0
 
     def execute(self, command: str) -> str:
-        return "0:0:N"
+        if command == "M":
+            self.y_position += 1
+        return f"0:{self.y_position}:N"
