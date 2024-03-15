@@ -3,6 +3,8 @@ class MarsRover:
         self.y_position = 0
 
     def execute(self, command: str) -> str:
-        if command == "M":
-            self.y_position += 1
+        for action in command:
+            if action == "M":
+                self.y_position += 1
+
         return f"0:{self.y_position}:N"
