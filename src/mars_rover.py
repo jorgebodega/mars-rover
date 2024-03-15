@@ -6,5 +6,6 @@ class MarsRover:
         for action in command:
             if action == "M":
                 self.y_position += 1
+                self.y_position %= 10
 
         return f"0:{self.y_position}:N"

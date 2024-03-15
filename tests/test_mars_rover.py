@@ -37,3 +37,11 @@ def test_should_move_y_axis_until_overflow() -> None:
     result = mars_rover.execute("MMMMMMMMMM")
 
     assert result == "0:0:N"
+
+
+def test_should_rotate_right() -> None:
+    mars_rover = MarsRover()
+
+    result = mars_rover.execute("R")
+
+    assert result == "0:0:E"
